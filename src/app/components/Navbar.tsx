@@ -17,17 +17,8 @@ import {
   DialogFooter,
   DialogClose,
 } from "@/components/ui/dialog";
-import {
-  Drawer,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerClose,
-} from "@/components/ui/drawer";
+
 import { Button } from "@/components/ui/button";
-import { useMediaQuery } from "../hooks/use-media-query";
 
 type TabType = "Bid" | "My Bids" | "Redeem" | "How to";
 
@@ -38,7 +29,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const isDesktop = useMediaQuery("(min-width: 768px)");
+  // const isDesktop = useMediaQuery("(min-width: 8px)");
 
   const handleTabClick = (tab: TabType) => {
     if (tab === "Bid") {
@@ -116,7 +107,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
 
   return (
     <>
-      {isDesktop ? (
+      {/* {isDesktop ? (
         <Dialog
           open={isOpen}
           onOpenChange={(open) => {
@@ -144,7 +135,21 @@ const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
             <ModalContent />
           </DrawerContent>
         </Drawer>
-      )}
+      )} */}
+
+      <Dialog
+        open={isOpen}
+        onOpenChange={(open) => {
+          setIsOpen(open);
+          if (!open) {
+            setActiveTab("Bid");
+          }
+        }}
+      >
+        <DialogContent className="sm:max-w-[425px] bg-gradient-to-br from-purple-950 to-blue-950 text-white">
+          <ModalContent />
+        </DialogContent>
+      </Dialog>
 
       {/* Navigation bar */}
       <div className="fixed bottom-0 left-0 right-0 flex justify-center pb-6 z-10">
