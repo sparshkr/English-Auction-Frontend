@@ -670,7 +670,7 @@ export default function CurrentBids({
   return (
     <div className="bg-gradient-to-br from-purple-900/50 to-blue-900/50 backdrop-blur-md p-6 rounded-3xl shadow-2xl border border-white/10">
       <h2 className="text-2xl font-bold mb-6 flex items-center bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-        <Clock className="mr-2 text-blue-400" /> Live Bids
+        <Clock className="mr-2 text-blue-400" /> Top Bids
       </h2>
       <div className="space-y-4">
         <AnimatePresence initial={false}>
